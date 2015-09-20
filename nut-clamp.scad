@@ -4,18 +4,19 @@ use <MCAD/fasteners/nuts_and_bolts.scad>
 use <MCAD/shapes/polyhole.scad>
 
 width = 15;
+thickness = 11;
+
 jaw_depth = width - 5;
 jaw_length = 12;
-thickness = 11;
-jaw_thickness = 5;
-length = 25;
-screw_size = 4;
+jaw_thickness = 5;              // thickness of plain jaw
+screw_jaw_thickness = 8;        // thickness of the jaw with the screw
+screw_size = 4;                 // major diameter, i.e. 4 for M4.
 clearance = 0.3;
 round_r = 1;
 nut_depth = 1.5;
 
+length = jaw_thickness + jaw_length + screw_jaw_thickness;
 jaw_offset = length - jaw_thickness;
-screw_jaw_thickness = length - jaw_length - jaw_thickness;
 
 module stretch (translation)
 {
